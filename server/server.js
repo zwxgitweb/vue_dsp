@@ -1,6 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const serverConfig = require('./serverConfig');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '../static/uploads')
+    },
+    filename: function (req, file, cb) {
+        let fileFormat = (file.originalname).split(".");
+        cb(null, file.fieldname + '-' + Date.now() + "." + fileFormat[fileFormat.length - 1]);
+    }
+})
+
+let upload = multer({
+    storage: storage
+})
 
 // 实例App
 const app = express();
@@ -17,4 +32,4 @@ app.all('*', function (req, res, next) {
 })
 
 // 服务挂载
-serverConfig(app);
+serverConfig(app, upload);

@@ -53,7 +53,7 @@ export default {
     height: 100%;
     width: 144px;
 }
-.el-aside .el-menu-item.is-active{
+#advertising .el-aside .el-menu-item.is-active{
     color: #2873FF;
 }
 </style>

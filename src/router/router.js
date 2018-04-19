@@ -1,5 +1,4 @@
 import Login from '../views/Login/Login'
-import Register from '../views/Register/Register'
 import Root from '../views/Root/Root'
 import Home from '../views/Home/Home'
 import IDC from '../views/IDC/IDC'

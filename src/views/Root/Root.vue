@@ -2,17 +2,20 @@
     <div id="root">
         <div class="asideBar">
             <header class="aside_header">
-                <p>1</p>
+                <h1>
+                    <!-- <i class="el-icon-menu"></i> -->
+                    智能投放系统
+                </h1>
             </header>
             <!-- 侧栏模板 *** 路由路径 -->
             <el-container>
                 <el-aside style='width: 200px'>
                     <el-menu :default-openeds="['1', '3']" router>
-                        <el-menu-item index="/advertising">
-                            <template slot="title"><i class="el-icon-menu"></i>新建广告</template>
+                        <el-menu-item index="/advertising" class="newAdv">
+                            <template slot="title"><i class="el-icon-plus"></i>新建广告</template>
                         </el-menu-item>
                         <el-menu-item index="/home">
-                            <template slot="title"><i class="el-icon-menu"></i>首页概览</template>
+                            <template slot="title"><i class="el-menu-item is-active"></i>首页概览</template>
                         </el-menu-item>
                         <el-submenu index="2">
                             <template slot="title"><i class="el-icon-document"></i>广告管理</template>
@@ -48,6 +51,10 @@
 import UserHeaderComp from '../../components/UserHeader/user_header'
 
 export default {
+    data() {
+        return {
+        }
+    },
     methods: {
       
     },
@@ -61,6 +68,9 @@ export default {
 *{
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-style: normal;
 }
 #root, .el-container{
     height: 100%;
@@ -74,18 +84,32 @@ export default {
     flex-direction: column;
     width: 200px;
 }
+.newAdv{
+    background: -webkit-linear-gradient(left, #095DE1, #081A6C );
+    margin-bottom: 20px;
+}
 .user_header{
     flex: 1;
     display: inline-flex;
     flex-direction: column;
+    background: #eee;
 }
 .userInfo_header{
     width: 100%;
     height: 65px;
+    background: #fff;
+    box-shadow: 0 1px 4px #ccc;
 }
 .aside_header{
     width: 100%;
     height: 65px;
+    background: #1C2941;
+}
+.aside_header h1{
+    color: #fff;
+    font-size: 18px;
+    line-height: 65px;
+    text-align: center;
 }
 .el-container{
     flex: 1;
@@ -102,7 +126,7 @@ export default {
     line-height: 54px;
     background-color: #022050;
 }
- .el-aside .el-menu-item.is-active, .el-aside .el-menu-item:hover, .el-aside .el-submenu__title:hover, .el-aside el-submenu__title:hover{
+  .el-aside .el-menu-item.is-active, .el-aside .el-menu-item:hover, .el-aside .el-submenu__title:hover, .el-aside el-submenu__title:hover{
     background-color: #021a41;
     color: #fff;
 }

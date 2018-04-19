@@ -3,11 +3,11 @@
       <!-- 卡片模板 -->
       <el-row>
         <el-col :span="8" :offset=1 v-for="(o, index) in cardData" :key="index" >
-          <el-card :body-style="{ padding: '0px' }">
+          <el-card>
             <div class="icon_tit">
               <i :class="o.icon"></i>
             </div>
-            <div style="padding: 25px;">
+            <div class="card_context">
               <span class="hint_info">{{o.tit}}</span>
               <div class="bottom clearfix">
                 <b>{{o.price}}</b>
@@ -134,9 +134,6 @@ import echarts, { init } from 'echarts';
         this.value7 && this.initDate();
       }
     },
-    created() {
-
-    },
     mounted() {
       this.echarts = echarts.init(this.$refs.ech);
       this.echarts.setOption(this.option);
@@ -149,7 +146,6 @@ import echarts, { init } from 'echarts';
 
 <style>
 #home{
-  background: #eee;
   display: inline-flex;
   flex: 1;
   flex-direction: column;
@@ -174,22 +170,23 @@ import echarts, { init } from 'echarts';
     margin-top: 13px;
     line-height: 12px;
   }
-  b{
+  .card_context{
+    flex: 1;
+    padding-left: 10px;
+  }
+  .bottom b{
     font-size: 24px;
   }
   .icon_tit{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     box-shadow: 0 2px 3px 0 #ccc;
-    line-height: 60px;
+    line-height: 50px;
     text-align: center;
-    margin-top: 15px;
-    margin-left: 14px;
   }
   .overall_situation{
     width: 100%;
-    padding-left: 20px;
     flex: 1;
     box-sizing: border-box;
     background: #fff;

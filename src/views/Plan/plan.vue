@@ -25,14 +25,12 @@
 
         <el-table-column
           type="selection"
-          fixed
           width="45">
         </el-table-column>
 
         <el-table-column
           label="账号"
           prop='ID'
-          fixed
           width="80">
         </el-table-column>
 
@@ -63,7 +61,7 @@
         <el-table-column
           prop="client"
           label="所属客户"
-          width="85">
+          width="80">
         </el-table-column>
 
         <el-table-column
@@ -96,17 +94,18 @@
         </el-table-column>
 
       </el-table>
+
       <!-- 分页器模板 -->
       <div class="block">
-    <el-pagination
-      :current-page="currentPage1"
-      :page-sizes="[6, 20, 50, 100]"
-      :page-size="6"
-      background
-      layout="sizes, prev, pager, next, jumper"
-      :total="tableData3.length">
-    </el-pagination>
-  </div>
+        <el-pagination
+          :current-page="currentPage1"
+          :page-sizes="[6, 20, 50, 100]"
+          :page-size="6"
+          background
+          layout="sizes, prev, pager, next, jumper"
+          :total="tableData3.length">
+        </el-pagination>
+      </div>
   </div>
 </template>
 
@@ -152,8 +151,8 @@ export default {
 <style>
 #plan{
   box-sizing: border-box;
-  height: 100%;
   width: 100%;
+  flex: 1;
   overflow: hidden;
   padding: 0 20px;
 }

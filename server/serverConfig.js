@@ -1,7 +1,7 @@
 const fs = require('fs');
 const http = require('http');
 const jwt = require('jsonwebtoken');
-module.exports = function (app) {
+module.exports = function (app, upload) {
 
     // 用户登录接口
     app.post('/dsp-admin/user/login', function (req, res) {
@@ -11,7 +11,7 @@ module.exports = function (app) {
             token: ''
         }
         let login = req.body;
-        let data = JSON.parse(fs.readFileSync('./user.json', {
+        let data = JSON.parse(fs.readFileSync('./server/user.json', {
             encode: 'utf8'
         }));
         data.forEach(function (user) {
@@ -30,14 +30,20 @@ module.exports = function (app) {
 
     // 账号信息接口
     app.post('/dsp-admin/userInfo', function (req, res) {
-        let data = JSON.parse(fs.readFileSync('./userInfo.json'));
+        let data = JSON.parse(fs.readFileSync('./server/userInfo.json'));
         if (data.code == 1) {
             res.end(JSON.stringify(data.userInfo));
         }
     })
     // 上传图片接口
-    app.post('/originality/upload/image', function (req, res) {
-        res.end('1');
+    app.post('/originality/upload/image', upload.single('file'), function (req, res) {
+        let fileInfo = req.file;
+        res.send({
+            data: {
+                size: fileInfo.size,
+                path: fileInfo.path
+            }
+        })
     })
     // 服务器端监听端口9000
     app.listen(9000, function () {
