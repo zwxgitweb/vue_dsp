@@ -14,8 +14,8 @@
                         <el-menu-item index="/advertising" class="newAdv">
                             <template slot="title"><i class="el-icon-plus"></i>新建广告</template>
                         </el-menu-item>
-                        <el-menu-item index="/home">
-                            <template slot="title"><i class="el-menu-item is-active"></i>首页概览</template>
+                        <el-menu-item index="/home" class="">
+                            <template slot="title"><i class="el-icon-menu"></i>首页概览</template>
                         </el-menu-item>
                         <el-submenu index="2">
                             <template slot="title"><i class="el-icon-document"></i>广告管理</template>
@@ -49,15 +49,7 @@
 
 <script>
 import UserHeaderComp from '../../components/UserHeader/user_header'
-
 export default {
-    data() {
-        return {
-        }
-    },
-    methods: {
-      
-    },
     components: {
         UserHeaderComp
     }
@@ -92,7 +84,7 @@ export default {
     flex: 1;
     display: inline-flex;
     flex-direction: column;
-    background: #eee;
+    background: #FAFAFA;
 }
 .userInfo_header{
     width: 100%;

@@ -154,11 +154,12 @@ export default {
   width: 100%;
   flex: 1;
   overflow: hidden;
-  padding: 0 20px;
 }
 #plan h1{
   height: 60px;
   line-height: 60px;
+  padding: 0 20px;
+  background: #fff;
 }
 .el-input-group__prepend{
   width: 80px;
